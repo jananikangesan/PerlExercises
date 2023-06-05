@@ -7,7 +7,7 @@
 @odd_number;
 @even_number;
 
-for ($i;$i<@numbers;$i++){
+for ($i=0;;$i<@numbers;$i++){
 	$value=@numbers[$i]%2;
 	if($value==0){
 		push(@even_number, (@numbers[$i]));
