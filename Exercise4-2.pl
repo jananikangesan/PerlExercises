@@ -12,6 +12,7 @@ $number=<STDIN>;
 @marks;
 
 for($i=0;$i<$number;$i++){
+	print "\$number[$i] : ";
 	$input=<STDIN>;
 	
 	push(@marks,$input);	

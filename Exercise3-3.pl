@@ -3,7 +3,7 @@
 # Eg: A[0] = ‘000’
 	# A[1] = ‘001’ ….
 	
-@binary_representation=("000","001","010","011","100","101","110",111);
+@A=("000","001","010","011","100","101","110","111");
 
 print "Enter the octal number:";
 $number=<STDIN>;
@@ -11,13 +11,14 @@ $binary="";
 
 print "octal number of $number = ";
 
- while($number>0){
 
-	 $reminder=$number % 10;
-	 $number=int($number / 10);
+  while($number>0){
+
+	  $remainder=$number % 10;
+	  $number=int($number / 10);
 	 
-	 $binary=$binary_representation[$reminder].$binary;
+	  $binary=$A[$remainder].$binary;
 	
 	 
  }
- print "$binary \n";
+  print "$binary \n";
