@@ -83,6 +83,8 @@ for(my $i = 1; $i <= length($seq2); $i++) {
     }
 }
 
+#printing the matrix
+
 for(my $i=0;$i<length($seq2)+1;$i++){
 	for(my $j=0;$j<length($seq1)+1;$j++){
 		print ("  ",$matrix[$i][$j]{score},"   ");
@@ -104,24 +106,22 @@ while (1) {
     last if $matrix[$i][$j]{pointer} eq "none";
     
     if ($matrix[$i][$j]{pointer} eq "diagonal") {
-        $align1 .= substr($seq1, $j-1, 1);
-        $align2 .= substr($seq2, $i-1, 1);
+        $align1 = substr($seq1, $j-1, 1). $align1 ;
+        $align2 = substr($seq2, $i-1, 1).$align2 ;
         $i--; $j--;
     }
     elsif ($matrix[$i][$j]{pointer} eq "left") {
-        $align1 .= substr($seq1, $j-1, 1);
-        $align2 .= "-";
+        $align1 = substr($seq1, $j-1, 1).$align1 ;
+        $align2 = "-".$align2 ;
         $j--;
     }
     elsif ($matrix[$i][$j]{pointer} eq "up") {
-        $align1 .= "-";
-        $align2 .= substr($seq2, $i-1, 1);
+        $align1 = "-". $align1 ;
+        $align2 = substr($seq2, $i-1, 1).$align2 ;
         $i--;
     }   
 }
 
-$align1 = reverse $align1;
-$align2 = reverse $align2;
 
 print "$align1\n";
 print "$align2\n";
